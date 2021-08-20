@@ -1595,7 +1595,7 @@
       <inertia ixx="0.01" ixy="0.00" ixz="0.00" iyy="0.01" iyz="0.00" izz="0.01"/>
     </inertial>
     <visual>
-      <!-- TODO: This component doesn't actually have a mesh -->
+      <!-- TODO - This component doesn't actually have a mesh -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://pr2_description/meshes/shoulder_v0/upper_arm_roll.stl"/>
@@ -1701,7 +1701,7 @@
       </geometry>
       <material name="RollLinks"/>
     </visual>
-    <!-- TODO: collision tag should be optional -->
+    <!-- TODO - collision tag should be optional -->
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -2394,7 +2394,7 @@
       <inertia ixx="0.01" ixy="0.00" ixz="0.00" iyy="0.01" iyz="0.00" izz="0.01"/>
     </inertial>
     <visual>
-      <!-- TODO: This component doesn't actually have a mesh -->
+      <!-- TODO - This component doesn't actually have a mesh -->
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
         <mesh filename="package://pr2_description/meshes/shoulder_v0/upper_arm_roll.stl"/>
@@ -2500,7 +2500,7 @@
       </geometry>
       <material name="RollLinks"/>
     </visual>
-    <!-- TODO: collision tag should be optional -->
+    <!-- TODO - collision tag should be optional -->
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>

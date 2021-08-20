@@ -213,21 +213,21 @@ void SRDFWriter::createGroupsXML(XMLElement* root)
   if (groups_.size())  // only show comments if there are corresponding elements
   {
     XMLComment* comment;
-    comment = doc->NewComment("GROUPS: Representation of a set of joints and links. This can be useful for specifying "
+    comment = doc->NewComment("GROUPS - Representation of a set of joints and links. This can be useful for specifying "
                               "DOF to plan for, defining arms, end effectors, etc");
     root->InsertEndChild(comment);
-    comment = doc->NewComment("LINKS: When a link is specified, the parent joint of that link (if it exists) is "
+    comment = doc->NewComment("LINKS - When a link is specified, the parent joint of that link (if it exists) is "
                               "automatically included");
     root->InsertEndChild(comment);
-    comment = doc->NewComment("JOINTS: When a joint is specified, the child link of that joint (which will always "
+    comment = doc->NewComment("JOINTS - When a joint is specified, the child link of that joint (which will always "
                               "exist) is automatically included");
     root->InsertEndChild(comment);
-    comment = doc->NewComment("CHAINS: When a chain is specified, all the links along the chain (including endpoints) "
+    comment = doc->NewComment("CHAINS - When a chain is specified, all the links along the chain (including endpoints) "
                               "are included in the group. Additionally, all the joints that are parents to included "
                               "links are also included. This means that joints along the chain and the parent joint "
                               "of the base link are included in the group");
     root->InsertEndChild(comment);
-    comment = doc->NewComment("SUBGROUPS: Groups can also be formed by referencing to already defined group names");
+    comment = doc->NewComment("SUBGROUPS - Groups can also be formed by referencing to already defined group names");
     root->InsertEndChild(comment);
   }
 
@@ -289,7 +289,7 @@ void SRDFWriter::createLinkSphereApproximationsXML(XMLElement* root)
   XMLDocument* doc = root->GetDocument();
 
   // Convenience comments
-  XMLComment* comment = doc->NewComment("COLLISION SPHERES: Purpose: Define a set of spheres that bounds a link.");
+  XMLComment* comment = doc->NewComment("COLLISION SPHERES - Purpose - Define a set of spheres that bounds a link.");
   root->InsertEndChild(comment);
 
   for (std::vector<srdf::Model::LinkSpheres>::const_iterator link_sphere_it = link_sphere_approximations_.begin();
@@ -328,7 +328,7 @@ void SRDFWriter::createDisabledCollisionsXML(XMLElement* root)
   // Convenience comments
   if (disabled_collisions_.size())  // only show comments if there are corresponding elements
   {
-    XMLComment* comment = doc->NewComment("DISABLE COLLISIONS: By default it is assumed that any link of the robot "
+    XMLComment* comment = doc->NewComment("DISABLE COLLISIONS - By default it is assumed that any link of the robot "
                                           "could potentially come into collision with any other link in the robot. "
                                           "This tag disables collision checking between a specified pair of links. ");
     root->InsertEndChild(comment);
@@ -357,7 +357,7 @@ void SRDFWriter::createGroupStatesXML(XMLElement* root)
   // Convenience comments
   if (group_states_.size())  // only show comments if there are corresponding elements
   {
-    XMLComment* comment = doc->NewComment("GROUP STATES: Purpose: Define a named state for a particular group, in "
+    XMLComment* comment = doc->NewComment("GROUP STATES - Purpose - Define a named state for a particular group, in "
                                           "terms of joint values. This is useful to define states like 'folded arms'");
     root->InsertEndChild(comment);
   }
@@ -379,7 +379,7 @@ void SRDFWriter::createGroupStatesXML(XMLElement* root)
       joint->SetAttribute("name", value_it->first.c_str());                 // joint name
       joint->SetAttribute("value", toString(value_it->second[0]).c_str());  // joint value
 
-      // TODO: use the vector to support multi-DOF joints
+      // TODO - use the vector to support multi-DOF joints
       state->InsertEndChild(joint);
     }
   }
@@ -395,7 +395,7 @@ void SRDFWriter::createEndEffectorsXML(XMLElement* root)
   // Convenience comments
   if (end_effectors_.size())  // only show comments if there are corresponding elements
   {
-    XMLComment* comment = doc->NewComment("END EFFECTOR: Purpose: Represent information about an end effector.");
+    XMLComment* comment = doc->NewComment("END EFFECTOR - Purpose - Represent information about an end effector.");
     root->InsertEndChild(comment);
   }
 
@@ -423,7 +423,7 @@ void SRDFWriter::createVirtualJointsXML(XMLElement* root)
   // Convenience comments
   if (virtual_joints_.size())  // only show comments if there are corresponding elements
   {
-    XMLComment* comment = doc->NewComment("VIRTUAL JOINT: Purpose: this element defines a virtual joint between a "
+    XMLComment* comment = doc->NewComment("VIRTUAL JOINT - Purpose - this element defines a virtual joint between a "
                                           "robot link and an external frame of reference (considered fixed with "
                                           "respect to the robot)");
     root->InsertEndChild(comment);
@@ -449,7 +449,7 @@ void SRDFWriter::createPassiveJointsXML(XMLElement* root)
 
   if (passive_joints_.size())
   {
-    XMLComment* comment = doc->NewComment("PASSIVE JOINT: Purpose: this element is used to mark joints that are not "
+    XMLComment* comment = doc->NewComment("PASSIVE JOINT - Purpose - this element is used to mark joints that are not "
                                           "actuated");
     root->InsertEndChild(comment);
   }
@@ -470,7 +470,7 @@ void SRDFWriter::createJointPropertiesXML(tinyxml2::XMLElement* root)
   if (!joint_properties_.empty())
   {
     XMLComment* comment = doc->NewComment(
-        "JOINT PROPERTIES: Purpose: Define a property for a particular joint (could be a virtual joint)");
+        "JOINT PROPERTIES - Purpose - Define a property for a particular joint (could be a virtual joint)");
     root->InsertEndChild(comment);
   }
   for (const auto& joint_properties : joint_properties_)
